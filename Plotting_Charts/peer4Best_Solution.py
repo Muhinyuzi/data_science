@@ -1,3 +1,24 @@
+import matplotlib.pyplot as plt
+import mplleaflet
+import numpy as np
+import pandas as pd
+
+df = pd.read_csv('data/C2A2_data/BinnedCsvs_d400/fb441e62df2d58994928907a91895ec62c2c42e6cd075c2700843b89.csv')
+
+df['Date'] = pd.to_datetime(df.Date)
+
+df = df.sort('Date')
+
+#new_df = df[df['Date'] == '2005-01-02']
+#new_df['Data_Value'].min()
+
+
+df2015 = df[df['Date'].dt.year == 2015]
+
+df = df[df['Date'].dt.year != 2015]
+
+df.head()
+
 max_temps = list()
 min_temps = list()
 dates = list()
